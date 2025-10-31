@@ -3,6 +3,8 @@
 [![CI](https://github.com/Disparat-Techno/Integra.AI/actions/workflows/ci.yml/badge.svg)](https://github.com/Disparat-Techno/Integra.AI/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/Disparat-Techno/Integra.AI?display_name=tag)](https://github.com/Disparat-Techno/Integra.AI/releases)
 
+<img width="1363" height="727" alt="image" src="https://github.com/user-attachments/assets/41293fd4-0c1d-4b96-87e0-86d79f3509c0" />
+
 Integra.AI é um aplicativo (CLI + Web) para automatizar integrações com APIs usando IA generativa (Google Gemini). Ele interpreta documentação de APIs e gera código de integração (Python/Node), scripts de teste e exemplos.
 
 ## Funcionalidades
@@ -143,6 +145,7 @@ MIT
 <img width="922" height="128" alt="image" src="https://github.com/user-attachments/assets/409b761b-4817-4cc7-b94e-fcd51470458f" />
 
 <img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/e90e2189-601d-4256-bd96-c32f7b68b64e" />
+
 
 
 
