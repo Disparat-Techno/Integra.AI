@@ -77,3 +77,6 @@ com autenticação, tratamento de erros e testes.
 
 ## Licença
 MIT
+
+<img width="982" height="515" alt="image" src="https://github.com/user-attachments/assets/d54aacf0-93c9-450d-b830-67012d14a314" />
+
