@@ -95,9 +95,11 @@
 
         <details>
             <summary>Como instalar o Integra.AI?</summary>
-            <p>Você pode instalar o Integra.AI usando pipx. Primeiro, certifique-se de ter pipx instalado:</p>
-            <pre><code class="code">pip install pipx</code></pre>
-            <p>Em seguida, instale o pacote Integra.AI a partir do arquivo .whl (disponível nas <a href="https://github.com/Disparat-Techno/Integra.AI/releases/latest" target="_blank" rel="noopener">Releases do GitHub</a>):</p>
+            <p>A maneira mais fácil de instalar o Integra.AI no Windows é usando o script de instalação PowerShell fornecido. Este script irá construir o pacote (se necessário) e instalá-lo automaticamente.</p>
+            <p><strong>1. Abra o PowerShell</strong> no diretório raiz do projeto (<code>c:\Integra.AI</code>).</p>
+            <p><strong>2. Execute o script de instalação:</strong></p>
+            <pre><code class="code">.\scripts\install.ps1</code></pre>
+            <p>Alternativamente, se você já tem o arquivo <code>.whl</code> (disponível nas <a href="https://github.com/Disparat-Techno/Integra.AI/releases/latest" target="_blank" rel="noopener">Releases do GitHub</a>) e o <code>pipx</code> instalado, você pode instalar diretamente:</p>
             <pre><code class="code">pipx install integra_ai-0.1.0-py3-none-any.whl</code></pre>
         </details>
 
