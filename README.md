@@ -144,6 +144,9 @@ MIT
 
 <img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/e90e2189-601d-4256-bd96-c32f7b68b64e" />
 
+<img width="1363" height="727" alt="image" src="https://github.com/user-attachments/assets/41293fd4-0c1d-4b96-87e0-86d79f3509c0" />
+
+
 
 
 ## Créditos e Contato
