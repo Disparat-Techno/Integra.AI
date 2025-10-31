@@ -17,7 +17,7 @@ def generate_code(prompt: str, api_key: Optional[str] = None, model: str = DEFAU
 
     Uses API key via query parameter (?key=) as per REST guidelines.
     """
-    key = api_key or os.getenv("GEMINI_API_KEY")
+    key = (api_key or os.getenv("GEMINI_API_KEY") or "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY not set in environment")
 

@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install -U pip
+          python -m pip install -e . ruff mypy build
+      - name: Lint (ruff)
+        run: ruff check .
+      - name: Type check (mypy)
+        run: mypy integra_ai --ignore-missing-imports
+      - name: Build package
+        run: python -m build
+      - name: Smoke test CLI
+        run: python -m integra_ai.cli --help
+      - name: Upload dist artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/*
