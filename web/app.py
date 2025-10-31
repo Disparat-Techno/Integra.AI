@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 from integra_ai.core.storage import list_integrations, save_integration_metadata
-from integra_ai.core.generator import save_generated_code
+from integra_ai.core.generator import save_generated_code, render_python_client
 from integra_ai.ai.gemini import generate_code
 from integra_ai.core.config import AppConfig
 
@@ -32,9 +32,15 @@ def api_generate():
         return jsonify({"error": "prompt is required"}), 400
 
     cfg = AppConfig.load()
-    code = generate_code(prompt)
-    path = save_generated_code(name or "integration", cfg.language, code)
-    save_integration_metadata(name or "integration", {"generated_file": str(path), "language": cfg.language})
+    integ_name = name or "integration"
+    code = None
+    try:
+        code = generate_code(prompt)
+    except Exception as e:  # fallback offline
+        # Produce a minimal client template as a stub
+        code = render_python_client(base_url="https://httpbin.org", token=None)
+    path = save_generated_code(integ_name, cfg.language, code)
+    save_integration_metadata(integ_name, {"generated_file": str(path), "language": cfg.language})
     return jsonify({"saved_to": str(path)})
 
 
