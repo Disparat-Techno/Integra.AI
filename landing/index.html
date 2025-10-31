@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Integra.AI — Automatize integrações com APIs usando IA</title>
+  <meta name="description" content="Integra.AI: CLI + Web para gerar integrações com APIs usando Google Gemini. Gere clientes, exemplos e testes automaticamente." />
+  <meta property="og:title" content="Integra.AI — Automatize integrações com APIs usando IA" />
+  <meta property="og:description" content="CLI + Web para gerar integrações com APIs usando Google Gemini." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/Disparat-Techno/Integra.AI" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚙️</text></svg>">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="container hero">
+    <div class="brand">
+      <div class="logo">⚙️</div>
+      <div>
+        <h1>Integra.AI</h1>
+        <p class="subtitle">Automatize integrações com APIs usando IA (Gemini)</p>
+      </div>
+    </div>
+    <div class="cta">
+      <a class="button primary" href="https://github.com/Disparat-Techno/Integra.AI" target="_blank" rel="noopener">Ver no GitHub</a>
+      <a class="button" href="https://github.com/Disparat-Techno/Integra.AI/releases/latest" target="_blank" rel="noopener">Baixar (Windows)</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container highlight">
+      <h2>CLI + Painel Web</h2>
+      <p>
+        Gere clientes de API, exemplos de uso e testes com um comando. Analise documentação (URL/Texto) e deixe a IA fazer o resto.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <h3>Gere com IA</h3>
+          <p>Use a API Gemini para criar código pronto para consumo de endpoints.</p>
+          <code class="code">integra ai --prompt "Gerar integração com a API Uber Direct"</code>
+        </div>
+        <div class="card">
+          <h3>Cliente rápido</h3>
+          <p>Crie um cliente Python simples para testar sua API.</p>
+          <code class="code">integra connect --name meu-cliente --base-url https://api.exemplo.com</code>
+        </div>
+        <div class="card">
+          <h3>Teste imediato</h3>
+          <p>Dispare requisições e valide respostas rapidamente.</p>
+          <code class="code">integra test --name meu-cliente --endpoint /status</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="container features">
+      <h2>Recursos</h2>
+      <ul class="features-list">
+        <li>Autocompletar e corrigir códigos de integração</li>
+        <li>Geração automática de clientes, exemplos e testes</li>
+        <li>Histórico de integrações e armazenamento local</li>
+        <li>Templates prontos (Python) e suporte a Node</li>
+        <li>Logs e auditoria de operações</li>
+      </ul>
+    </section>
+
+    <section class="container how">
+      <h2>Como usar</h2>
+      <ol>
+        <li>Instale: <code class="code">pipx install integra_ai-0.1.0-py3-none-any.whl</code> (veja Releases)</li>
+        <li>Defina a chave: <code class="code">$env:GEMINI_API_KEY="&lt;SUA_CHAVE&gt;"</code></li>
+        <li>Gere código: <code class="code">integra ai --prompt "Gerar integração com X"</code></li>
+        <li>Abra o painel: <code class="code">python -m flask --app web.app run --debug</code></li>
+      </ol>
+      <p>
+        Dica: no Vercel, publique esta landing apontando o <strong>Root Directory</strong> para <code>landing</code>.
+      </p>
+    </section>
+
+    <section class="container gallery">
+      <h2>Capturas</h2>
+      <div class="grid">
+        <img src="https://github.com/user-attachments/assets/d54aacf0-93c9-450d-b830-67012d14a314" alt="Painel Integra.AI" />
+        <img src="https://github.com/user-attachments/assets/695e79a3-bead-4ccb-8292-23603c55eab0" alt="Exemplo de integração" />
+        <img src="https://github.com/user-attachments/assets/409b761b-4817-4cc7-b94e-fcd51470458f" alt="CLI Integra.AI" />
+      </div>
+    </section>
+
+    <section class="container contact">
+      <h2>Contato</h2>
+      <p>
+        Programador: <strong>Julio Campos Machado</strong><br/>
+        Empresa: <strong>Like Look Solutions</strong><br/>
+        Site: <a href="https://likelook.wixsite.com/solutions" target="_blank" rel="noopener">likelook.wixsite.com/solutions</a><br/>
+        WhatsApp: (11) 97060-3441 / (11) 99294-6628
+      </p>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <span>© Integra.AI. MIT.</span>
+    <a href="https://github.com/Disparat-Techno/Integra.AI" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+</body>
+</html>
