@@ -85,6 +85,61 @@
       </div>
     </section>
 
+    <section class="container faq">
+      <h2>Perguntas Frequentes (FAQ)</h2>
+      <div class="faq-items">
+        <details>
+            <summary>O que é Integra.AI?</summary>
+            <p>Integra.AI é uma ferramenta CLI e Web que utiliza inteligência artificial (Google Gemini) para automatizar a geração de código para integrações com APIs. Ela pode criar clientes de API, exemplos de uso e testes.</p>
+        </details>
+
+        <details>
+            <summary>Como instalar o Integra.AI?</summary>
+            <p>Você pode instalar o Integra.AI usando pipx. Primeiro, certifique-se de ter pipx instalado:</p>
+            <pre><code class="code">pip install pipx</code></pre>
+            <p>Em seguida, instale o pacote Integra.AI a partir do arquivo .whl (disponível nas <a href="https://github.com/Disparat-Techno/Integra.AI/releases/latest" target="_blank" rel="noopener">Releases do GitHub</a>):</p>
+            <pre><code class="code">pipx install integra_ai-0.1.0-py3-none-any.whl</code></pre>
+        </details>
+
+        <details>
+            <summary>Como configurar a chave da API Gemini?</summary>
+            <p>Para usar a funcionalidade de IA, você precisa definir sua chave da API Google Gemini como uma variável de ambiente. Substitua <code>&lt;SUA_CHAVE&gt;</code> pela sua chave real:</p>
+            <p><strong>Windows (PowerShell):</strong></p>
+            <pre><code class="code">$env:GEMINI_API_KEY="&lt;SUA_CHAVE&gt;"</code></pre>
+            <p><strong>Linux/macOS (Bash):</strong></p>
+            <pre><code class="code">export GEMINI_API_KEY="&lt;SUA_CHAVE&gt;"</code></pre>
+            <p>Recomenda-se adicionar isso ao seu arquivo de perfil (ex: <code>.bashrc</code>, <code>.zshrc</code>, <code>.profile</code>) para que seja carregado automaticamente.</p>
+        </details>
+
+        <details>
+            <summary>Como gerar código usando a CLI?</summary>
+            <p>Use o comando <code>integra ai</code> com um prompt descrevendo a integração desejada:</p>
+            <pre><code class="code">integra ai --prompt "Gerar integração com a API Uber Direct para criar entregas"</code></pre>
+            <p>Você também pode especificar o modelo Gemini a ser usado:</p>
+            <pre><code class="code">integra ai --prompt "Gerar integração com a API Uber Direct" --model gemini-pro</code></pre>
+        </details>
+
+        <details>
+            <summary>Como usar o Painel Web?</summary>
+            <p>Para iniciar o painel web, execute o seguinte comando no diretório raiz do projeto:</p>
+            <pre><code class="code">python -m flask --app web.app run --debug</code></pre>
+            <p>Em seguida, acesse <code>http://127.0.0.1:5000/</code> (ou a porta configurada) no seu navegador. Lá você encontrará uma interface para interagir com a IA.</p>
+        </details>
+
+        <details>
+            <summary>Quais modelos Gemini são suportados?</summary>
+            <p>Atualmente, o Integra.AI suporta <code>gemini-1.5-flash</code> (padrão) e <code>gemini-pro</code>. Você pode especificar o modelo usando o argumento <code>--model</code> na CLI ou selecionando-o no painel web.</p>
+        </details>
+
+        <details>
+            <summary>Como executar os testes unitários?</summary>
+            <p>Para executar os testes unitários do projeto, navegue até o diretório raiz do projeto (<code>c:\Integra.AI</code>) no seu terminal e execute:</p>
+            <pre><code class="code">python -m unittest discover tests</code></pre>
+            <p>Isso descobrirá e executará todos os testes na pasta <code>tests</code>.</p>
+        </details>
+      </div>
+    </section>
+
     <section class="container contact">
       <h2>Contato</h2>
       <p>
