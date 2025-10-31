@@ -1,0 +1,42 @@
+from __future__ import annotations
+from flask import Flask, jsonify, request
+from dotenv import load_dotenv
+from pathlib import Path
+
+from integra_ai.core.storage import list_integrations, save_integration_metadata
+from integra_ai.core.generator import save_generated_code
+from integra_ai.ai.gemini import generate_code
+from integra_ai.core.config import AppConfig
+
+load_dotenv()
+
+app = Flask(__name__)
+
+
+@app.get("/")
+def index():
+    return jsonify({"app": "Integra.AI", "status": "ok"})
+
+
+@app.get("/api/integrations")
+def api_list():
+    return jsonify({"items": list_integrations()})
+
+
+@app.post("/api/generate")
+def api_generate():
+    data = request.get_json(silent=True) or {}
+    prompt = data.get("prompt")
+    name = data.get("name")
+    if not prompt:
+        return jsonify({"error": "prompt is required"}), 400
+
+    cfg = AppConfig.load()
+    code = generate_code(prompt)
+    path = save_generated_code(name or "integration", cfg.language, code)
+    save_integration_metadata(name or "integration", {"generated_file": str(path), "language": cfg.language})
+    return jsonify({"saved_to": str(path)})
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+build/
+dist/
+.venv/
+venv/
+.env
+
+# Archives / artifacts
+*.zip
+*.tar.gz
+*.whl
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# App
+logs/
+integrations/*/__pycache__/
