@@ -78,6 +78,64 @@ com autenticação, tratamento de erros e testes.
 ## Licença
 MIT
 
+---
+
+## Comandos CLI (uso completo)
+
+- Ajuda geral:
+  - `integra --help`
+- Inicializar projeto:
+  - `integra init --project-name "Integra.AI" --language python`
+- Gerar código via IA (Gemini):
+  - `integra ai --prompt "<seu prompt>"`
+  - Opções úteis: `--name <nome-integracao>` `--language python|node` `--model gemini-pro`
+- Criar cliente Python "manual" apontando para uma API:
+  - `integra connect --name <nome> --base-url https://api.exemplo.com --token <JWT_OPCIONAL>`
+- Listar integrações existentes:
+  - `integra list`
+- Testar uma integração (requisição simples):
+  - `integra test --name <nome> --endpoint /status --method GET`
+
+### Exemplos rápidos (PowerShell)
+- Definir chave e gerar com IA:
+  - `$env:GEMINI_API_KEY="<SUA_CHAVE>"; integra ai --prompt "Gerar integração com a API Uber Direct"`
+- Testar endpoint após `connect`:
+  - `integra test --name meu-cliente --endpoint / --method GET`
+
+### Variáveis de ambiente
+- PowerShell (Windows):
+  - `$env:GEMINI_API_KEY="<SUA_CHAVE>"`
+- CMD (Windows, sessão atual):
+  - `set GEMINI_API_KEY=<SUA_CHAVE>`
+- Bash (Linux/Mac):
+  - `export GEMINI_API_KEY=<SUA_CHAVE>`
+
+## API Web (Flask)
+- Iniciar servidor:
+  - `python -m flask --app web.app run --debug`
+- Endpoints:
+  - `GET /` → status
+  - `GET /api/integrations` → lista integrações
+  - `POST /api/generate` → gera código
+    - Body JSON:
+      ```json
+      {"prompt":"Gerar integração com X","name":"minha-integracao"}
+      ```
+
+## Instalação Global (pipx)
+- Construir e instalar:
+  - `python -m pip install -U build && python -m build`
+  - `pipx install .\\dist\\integra_ai-0.1.0-py3-none-any.whl`
+- Se necessário: adicionar `C:\\Users\\SEU_USUARIO\\.local\\bin` ao PATH.
+
+## Troubleshooting
+- 401/404 ao chamar Gemini:
+  - Verifique `GEMINI_API_KEY` definida no ambiente da sessão que executa `integra`.
+  - Confirme o modelo (`--model gemini-pro`) e conectividade HTTPS.
+- Sem `integra` no terminal após pipx:
+  - Rode `pipx ensurepath` e abra um novo terminal.
+
+## Screenshots
 <img width="982" height="515" alt="image" src="https://github.com/user-attachments/assets/d54aacf0-93c9-450d-b830-67012d14a314" />
 
 <img width="1361" height="723" alt="image" src="https://github.com/user-attachments/assets/695e79a3-bead-4ccb-8292-23603c55eab0" />
@@ -85,4 +143,8 @@ MIT
 <img width="922" height="128" alt="image" src="https://github.com/user-attachments/assets/409b761b-4817-4cc7-b94e-fcd51470458f" />
 
 
-
+## Créditos e Contato
+- Programador: Julio Campos Machado
+- Empresa: Like Look Solutions
+- Site: https://likelook.wixsite.com/solutions
+- Contatos: (11) 97060-3441 / (11) 99294-6628
