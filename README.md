@@ -142,6 +142,9 @@ MIT
 
 <img width="922" height="128" alt="image" src="https://github.com/user-attachments/assets/409b761b-4817-4cc7-b94e-fcd51470458f" />
 
+<img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/e90e2189-601d-4256-bd96-c32f7b68b64e" />
+
+
 
 ## Créditos e Contato
 - Programador: Julio Campos Machado
