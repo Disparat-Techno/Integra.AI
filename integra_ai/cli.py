@@ -55,7 +55,7 @@ def ai(
     prompt: str = typer.Option(..., "--prompt", "-p", help="Prompt para geração de código"),
     name: Optional[str] = typer.Option(None, help="Nome da integração (opcional)"),
     language: Optional[str] = typer.Option(None, help="Override de linguagem (python|node)"),
-    model: str = typer.Option("gemini-pro", help="Modelo Gemini"),
+    model: str = typer.Option("gemini-1.5-flash", help="Modelo Gemini"),
 ):
     cfg = AppConfig.load()
     lang = language or cfg.language

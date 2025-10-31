@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integra.AI - Gerar Integração</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Integra.AI - Gerar Integração</h1>
+
+        <form id="generateForm">
+            <label for="prompt">Prompt (Instrução para a IA):</label>
+            <textarea id="prompt" name="prompt" placeholder="Ex: Gerar integração com a API Uber Direct para criar entregas." required></textarea>
+
+            <label for="name">Nome da Integração (Opcional):</label>
+            <input type="text" id="name" name="name" placeholder="Ex: uber-direct-integration">
+
+            <label for="model">Modelo Gemini:</label>
+            <select id="model" name="model">
+                <option value="gemini-1.5-flash" selected>gemini-1.5-flash (Padrão)</option>
+                <option value="gemini-pro">gemini-pro</option>
+                <!-- Adicione outros modelos conforme necessário -->
+            </select>
+
+            <button type="submit">Gerar Integração</button>
+        </form>
+
+        <div id="result">
+            <!-- O resultado da geração será exibido aqui -->
+            Aguardando sua instrução...
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('generateForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            const prompt = document.getElementById('prompt').value;
+            const name = document.getElementById('name').value;
+            const model = document.getElementById('model').value;
+            const resultDiv = document.getElementById('result');
+
+            resultDiv.innerHTML = 'Gerando código... Por favor, aguarde.';
+            resultDiv.className = ''; // Limpa classes de estilo anteriores
+
+            try {
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt, name, model }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    resultDiv.innerHTML = `<span class="success">Sucesso!</span> Código salvo em: ${data.saved_to}`;
+                    console.log('Sucesso:', data);
+                } else {
+                    resultDiv.innerHTML = `<span class="error">Erro:</span> ${data.error || 'Ocorreu um erro desconhecido.'}`;
+                    console.error('Erro:', data);
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">Erro de rede:</span> ${error.message}`;
+                console.error('Erro de rede:', error);
+            }
+        });
+    </script>
+</body>
+</html>
